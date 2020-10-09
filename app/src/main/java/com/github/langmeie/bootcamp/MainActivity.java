@@ -15,9 +15,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // TODO: Remove this line of code once I learn about asynchronous operations!
-        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
     }
 
     /**
@@ -28,6 +25,11 @@ public class MainActivity extends AppCompatActivity {
         EditText mainName = (EditText) findViewById(R.id.mainName);
         String message = mainName.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
+    }
+
+    public void showWeather(View view) {
+        Intent intent = new Intent(this, WeatherActivity.class);
         startActivity(intent);
     }
 }
